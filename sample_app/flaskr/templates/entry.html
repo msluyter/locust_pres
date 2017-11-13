@@ -1,0 +1,6 @@
+{% extends "layout.html" %}
+{% block body %}
+  <ul class="entries">
+    <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}</li>
+  </ul>
+{% endblock %}
