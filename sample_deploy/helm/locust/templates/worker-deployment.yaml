@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}-worker
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+spec:
+  replicas: {{ .Values.workerReplicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}-worker
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+          - name: "LOCUST_MODE"
+            value: "worker"
+          - name: "LOCUST_MASTER"
+            value: "{{ template "fullname" . }}"
+# Helm has a bug related to envFrom and configmaps, https://github.com/kubernetes/helm/issues/2257
+# This should be moved to envFrom the configMap when that is possible
+          {{- range $key, $val := .Values.locust_config_options }}
+          - name: {{ $key }}
+            value: {{ $val | quote}}
+          {{- end}}

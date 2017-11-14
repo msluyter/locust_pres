@@ -1,0 +1,14 @@
+# Default values for locust.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+masterReplicaCount: 1
+workerReplicaCount: 5 
+image:
+  name: us.gcr.io/wp-engine-development/locust
+  tag: example1 
+  pullPolicy: IfNotPresent
+service:
+  type: LoadBalancer
+locust_config_options:
+    TARGET_HOST: http://msluyter.pythonanywhere.com
+    LOCUST_TASK: /locust_demo/locustfile.py

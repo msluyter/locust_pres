@@ -18,4 +18,4 @@ EXPOSE 5557 5558 8089
 # Set script to be executable
 RUN chmod 755 /locust_demo/run.sh
 
-ENTRYPOINT ["/locust_demo/run.sh"]
+CMD /locust_demo/run.sh
