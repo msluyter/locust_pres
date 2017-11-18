@@ -81,13 +81,8 @@ def show_entries():
 @app.route('/slow')
 def slow():
     """Artificially slow endpoint"""
-    def timer():
-        delay = random.randint(1, 4)
-        time.sleep(delay)
-
-    t = Thread(target=timer)
-    t.start()
-    t.join()
+    delay = random.randint(1, 4)
+    time.sleep(delay)
 
     return render_template('slow.html')
 
@@ -100,7 +95,6 @@ def flaky():
 
 @app.route('/entry/<entry_id>')
 def get_entry(entry_id):
-    print("Here!")
     db = get_db()
     cur = db.execute('SELECT title, text FROM entries WHERE id = ?', entry_id)
     entry = cur.fetchone()

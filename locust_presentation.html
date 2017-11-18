@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Performance Testing with Python and Locust</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+        <link rel="stylesheet" type="text/css" href="/css/asciinema-player.css" />
+
+    </head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section data-background-image="public/images/wpe.png">
+                </section>
+                <section data-background-image="public/images/wpe.png">
+                    <h1><font color="orange">We're hiring!</font> </h1>
+                </section>
+
+                </section>
+                <section>
+                    <h2 style="text-align: right;">
+                        <b>Performance Testing</b>
+                    </h2>
+
+                    <h2 style="text-align: right;">
+                        <b>with</b>
+                    </h2>
+                    <h2 style="text-align: right;">
+                            <font color="#0f8">Python</font> and
+                            <font color="#f08">Locust</font>
+                    </h2>
+                </section>
+
+                <section>
+                    <section><h2>AKA...</h2></section>
+                    <section>
+                        <h2 style="text-align: right;">
+                        <font color="#0f8">Snakes</font> and
+                        <font color="#f08">Bugs</font>
+                        </h2>
+                        <h2 style="text-align: right;">Eat</h2>
+                        <h2 style="text-align: right;">Your</h2>
+                        <h2 style="text-align: right;">
+                            <font color="#ff8c00">Website</font> </h2>
+                    </section>
+                </section>
+
+                <section>
+                    <h3>Why?</h3>
+                    <h3>What?</h3>
+                    <h3>How?</h3>
+                    <h3>Who?</h3>
+                    <h3>When?</h3>
+                </section>
+
+                <section data-background-color="rgba( 22, 152, 213, 0.6 )">
+                    <h1><font color="#fff8dc">Why?</font> </h1>
+                </section>
+
+                <section>
+                    <blockquote cite="https://www.doubleclickbygoogle.com/articles/mobile-speed-matters/">
+                        &ldquo;
+                        In our new study, “The Need for Mobile Speed”, we found that 53% of mobile site visits are abandoned if pages take longer than 3 seconds to load.
+                        &rdquo;
+                    </blockquote>
+                    <p style="text-align: right; font-size: small; color: #1b91ff"><i>https://www.doubleclickbygoogle.com/articles/mobile-speed-matters/</i></p>
+                </section>
+
+                <section data-background-image="/public/images/efs_transition.png">
+                </section>
+
+                <section data-background-image="/public/images/butte_of_despair.png">
+                </section>
+
+                <section>
+                    <div class="fragment">Repeatability</div>
+                    <div class="fragment">Predictability</div>
+                </section>
+                <section data-background-color="rgb(115, 37, 91)">
+                    <H1>WHAT?</H1>
+                </section>
+
+                <section>
+                    <h2>Targets</h2>
+                    <font size="smaller" color="#ff7f50">(Things we measure)</font>
+                    <p></p>
+                    <div class="fragment" data-fragment-index="1">
+                        <ul>
+                            <li>Availability or uptime</li>
+                            <li>Concurrency</li>
+                            <li>Throughput</li>
+                            <li>Response time</li>
+                            <li>Network utilization</li>
+                            <li>Server utilization</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <img src="/public/images/art_app_perf_testing.png" height="600" width="400"/>
+                </section>
+
+                <section data-background-color="rgb(160, 80, 7)">
+                    <H1>How?</H1>
+                </section>
+
+                <!--<section>-->
+                    <!--<section>-->
+                        <!--<H1>Locust</H1>-->
+                    <!--</section>-->
+                    <!--&lt;!&ndash;<section><h2>ab</h2>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<img src="public/images/ab.png"/>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</section>&ndash;&gt;-->
+                <!--</section>-->
+
+
+				<!--<section>-->
+                    <!--<asciinema-player src="/public/146722.json" speed="1.5" cols="130" rows="32"></asciinema-player>-->
+                <!--</section>-->
+
+                <section>
+                    <h1>Locust</h1>
+                    <img src="public/images/locust.png" />
+                </section>
+
+                <section>
+                    <ul>
+                        <li class="fragment fade-in">MIT License: https://github.com/locustio/locust</li>
+                        <li class="fragment fade-in">Docs: locust.io</li>
+                        <li class="fragment fade-in">Supports Python 3.6</li>
+                    </ul>
+
+
+                </section>
+
+                <section data-background-color="rgba( 160, 80, 7, 0.6 )">
+                    <h1><font color="#fff8dc">Demo...</font> </h1>
+                </section>
+
+                <!--<section style="background-color: rgb(160, 80, 7);">-->
+                    <!--<h1>Demo...</h1>-->
+                <!--</section>-->
+
+                <section>
+                    <h1>Scaling Locust</h1>
+                    <pre><code class="bash" data-trim data-noescape>
+# On master
+locust -f my_locustfile.py --master
+
+# On slaves
+locust -f my_locustfile.py --slave --master-host=192.168.0.14
+
+                    </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <img src="public/images/arch.png" />
+                </section>
+
+                <section  data-background-color="rgba( 70, 120, 170, 0.6 )">
+
+                    <h1>Orchestration</h1>
+                    <ul>
+                        <div class="fragment">
+
+                            <li>Installs locust in kubernetes (via helm)</li>
+                        </div>
+                        <div class="fragment">
+                            <li>Starts locust workers</li>
+                        </div>
+                        <div class="fragment">
+                            <li>Lets test run for a defined period of time</li>
+                        </div>
+                        <div class="fragment">
+                            <li>Retrieves locust results</li>
+                        </div>
+                        <div class="fragment">
+                            <li>Stops locust</li>
+                        </div>
+                        <div class="fragment">
+                            <li>Writes results to BigQuery</li>
+                        </div>
+                    </ul>
+                </section>
+
+                <section data-background-color="rgba( 90, 10, 120, 0.6 )">
+                    <h1>Tips</h1>
+                        <ul>
+                            <div class="fragment">
+
+                                <li>Beware of failures</li>
+                            </div>
+                            <div class="fragment">
+                                <li>Be aware of caching</li>
+                            </div>
+                            <div class="fragment">
+                                <li>Automate bookkeeping</li>
+                            </div>
+                        </ul>
+                </section>
+
+                <section>
+                    <h1>Who?</h1>
+                    <div class="fragment">
+                        <h2><font color="#af0">You!</font></h2>
+                    </div>
+
+                    <div class="fragment">
+                        <h1>When?</h1>
+                    </div>
+                    <div class="fragment">
+                        <h2><font color="#fa0">Now!</font></h2>
+                    </div>
+                </section>
+
+                <section>
+                    <p><font color="#00ced1"> Examples:</font> https://github.com/msluyter/locust_pres</p>
+                    <p>michael.sluyter@wpengine.com</p>
+                </section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                transition: 'slide',
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+        <script src="/js/asciinema-player.js"></script>
+	</body>
+</html>

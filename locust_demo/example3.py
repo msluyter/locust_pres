@@ -18,7 +18,7 @@ class MyTaskSet(TaskSet):
 
     @task(1)
     def entry(self):
-        entry = random.randint(1, 5)
+        entry = random.randint(1, 6)
 
         self.client.get(f"/entry/{entry}", name="Entry")
 
